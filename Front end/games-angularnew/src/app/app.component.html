@@ -1,0 +1,93 @@
+
+
+<div class="jumbotron jumbotron-fluid">
+  <h3 class="display-4 text-center">GAMES </h3>
+  <div class="container">
+
+    <form #userForm="ngForm" novalidate>
+
+      <div class="container">
+        <div class="row">
+
+          <div class="col-2">
+            <div class="form-group">
+              <label>Atmosphere</label>
+              <select class="custom-select" name="Atmosphere" [(ngModel)]="atmosphere">
+                  <option selected>Any</option>
+                  <option *ngFor="let atm of atmosphere" [value]="atm.subject">
+                      {{atm.subject | truncate}}
+                  </option>
+            </select>
+            </div>
+          </div>
+
+          <div class="col-2">
+            <div class="form-group">
+              <label>Game Play</label>
+              <select class="custom-select" name="gameplay" [(ngModel)]="gameplay">
+                <option selected>Any</option>
+                  <option *ngFor="let gp of gameplay" [value]="gp.subject">
+                      {{gp.subject | truncate}}
+                  </option>
+            </select>
+            </div>
+          </div>
+
+          <div class="col-2">
+            <div class="form-group">
+              <label>Genre</label>
+              <select class="custom-select" name="genre" [(ngModel)]="genre">
+                 <option selected>Any</option>
+                  <option *ngFor="let gen of genre" [value]="gen.subject">
+                      {{gen.subject | truncate}}
+                  </option>
+            </select>
+            </div>     
+          </div> 
+
+          <div class="col-2">
+            <div class="form-group">
+              <label>No. of players</label>
+              <select class="custom-select" name="players" [(ngModel)]="players">
+                <option selected>Any</option>
+                  <option *ngFor="let pl of players" [value]="pl.subject">
+                      {{pl.subject | truncate}}
+                  </option>
+            </select>
+            </div> 
+          </div>     
+   
+          <div class="col-2">
+            <div class="form-group">
+              <label>Platform</label>
+              <select class="custom-select" name="platform" [(ngModel)]="platform">
+                <option selected>Any</option>
+                  <option *ngFor="let plat of platform" [value]="plat.subject">
+                      {{plat.subject | truncate}}
+                  </option>
+            </select>
+            </div> 
+          </div>  
+
+          <div class="col-2" style=" padding-top: 30px;">
+            <button class="btn btn-primary" type="Submit" (click)="viewGames()">View Games</button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Games Found</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let game of games" (click)="gameDetails(game)">
+          <td>{{game.name}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
